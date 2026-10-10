@@ -241,7 +241,7 @@ const $=id=>document.getElementById(id);
 function el(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;}
 function showError(msg){$('quizCard').classList.add('hidden');$('passageCard').classList.add('hidden');$('errorCard').classList.remove('hidden');$('errorText').textContent=msg;}
 applyLanguage();
-next.searchParams.set('lang',event.target.value);location.href=next.href;});
+
 if(!SID||!/^\d{1,16}$/.test(SID)){showError('رابط التدريب غير مكتمل أو رقم الطالب غير صالح. اطلب من المعلم إنشاء رابط جديد.');return;}
 if(!SET){showError('مجموعة التدريب غير معروفة. اطلب من المعلم إنشاء رابط صحيح.');return;}
 // Attempt number is session-only UI state, never a security boundary.
@@ -315,7 +315,7 @@ function finish(){
  if(LANGUAGE==='en'){[encouragement.title,encouragement.message,encouragement.foot]=encouragementEN[tier];}
  else if(LANGUAGE==='ar'){[encouragement.title,encouragement.message,encouragement.foot]=encouragementAR[tier];}
  else if(LANGUAGE==='bilingual'){const en=encouragementEN[tier],ar=encouragementAR[tier];[encouragement.title,encouragement.message,encouragement.foot]=[en[0]+'\n'+ar[0],en[1]+'\n'+ar[1],en[2]+'\n'+ar[2]];}
- $('resultEmoji').textContent=encouragement.emoji;$('resultTitle').textContent=encouragement.title;$('resultMessage').textContent=encouragement.message;$('resultFootnote').textContent=LANGUAGE==='en'?'Keep going: every attempt can teach you something new.':LANGUAGE==='ar'?encouragement.foot:encouragement.foot+'\nKeep going: every attempt can teach you something new.';$('resultScoreline').textContent=t('score')+': '+r.score+'\n'+SET.questions.length+' • '+pct+'%';$('resultMeterFill').style.width=pct+'%';
+ $('resultEmoji').textContent=encouragement.emoji;$('resultTitle').textContent=encouragement.title;$('resultMessage').textContent=encouragement.message;$('resultFootnote').textContent=encouragement.foot;$('resultScoreline').textContent='Score: '+r.score+' / '+SET.questions.length+' • '+pct+'%\nالنتيجة: '+r.score+' من '+SET.questions.length+' • '+pct+'%';$('resultMeterFill').style.width=pct+'%';
  if(currentAttempt>=2)$('retryBtn').classList.add('hidden');else $('retryBtn').classList.remove('hidden');
  $('resultNote').textContent=t('exportNote');
  $('shareBtn').textContent=t('send');$('resultCard').querySelector('.result-kicker').textContent=t('resultKicker');
