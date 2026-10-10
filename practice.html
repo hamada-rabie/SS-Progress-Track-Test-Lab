@@ -331,18 +331,17 @@ function finish(){
       'Skill: '+(SKILL_LABELS[SKILL_TYPE]?.en||'Reading'),
       'المهارة: '+(SKILL_LABELS[SKILL_TYPE]?.ar||'القراءة'),
       '',
-      'Practice set: '+SET_ID,
-      'مجموعة التدريب: '+SET_ID,
-      '',
       'Score: '+r.score+' / '+SET.questions.length,
       'النتيجة: '+r.score+' من '+SET.questions.length,
       '',
       'Attempt: '+r.attempt,
       'المحاولة: '+r.attempt,
       '',
-      PREVIEW_MODE ? 'TEST PREVIEW ONLY — no live result link is included.' : 'Teacher-only result link (teacher sign-in and roster validation required):',
-      PREVIEW_MODE ? 'معاينة اختبار فقط — لا يتضمن رابطًا إلى بيانات التطبيق الأصلي.' : 'رابط النتيجة للمعلم فقط (يتطلب تسجيل الدخول والتحقق من سجل الطلاب):',
-      ...(PREVIEW_MODE ? [] : [r.url])
+      'Questions to review: '+(wrong.length?wrong.join(', '):'None'),
+      'الأسئلة التي تحتاج إلى مراجعة: '+(wrong.length?wrong.join('، '):'لا توجد أخطاء'),
+      '',
+      PREVIEW_MODE ? 'TEST PREVIEW ONLY — no live result link is included.' : 'Please review this result with the student.',
+      PREVIEW_MODE ? 'معاينة اختبار فقط — لا يتضمن رابطًا إلى بيانات التطبيق الأصلي.' : 'يرجى مراجعة النتيجة مع الطالب.'
     ].join('\n');const waUrl='https://wa.me/?text='+encodeURIComponent(message);
    window.location.href=waUrl;
  };
