@@ -5278,6 +5278,8 @@ seedDemoDataIfNeeded();
    const set=$('ss-rem-skill').value+'-'+$('ss-rem-level').value;
    const url=new URL('practice.html',location.href);
    url.searchParams.set('set',set);
+   url.searchParams.set('preview','1');
+   url.searchParams.set('sid','9999999999999999');
    url.searchParams.set('lang',$('ss-rem-lang').value);
    url.searchParams.set('sname',($('ss-rem-name').value||'طالب تجريبي').trim().slice(0,80));
    location.href=url.href;
