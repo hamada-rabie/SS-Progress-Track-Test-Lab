@@ -227,7 +227,8 @@ function applyLanguage(){
  const select=document.getElementById('languageMode');if(select)select.value=LANGUAGE;
 }
 
-const SID=(params.get('sid')||'').trim();
+const PREVIEW_MODE=params.get('preview')==='1';
+const SID=(params.get('sid')||(PREVIEW_MODE?'9999999999999999':'')).trim();
 const STUDENT_NAME=(params.get('sname')||'').trim().slice(0,100);
 const SET_ID=params.get('set')||'R2-S01';
 const SET=BANK[SET_ID];
