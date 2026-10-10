@@ -5250,12 +5250,7 @@ seedDemoDataIfNeeded();
       <option value="WK01">Weak | ضعيف</option>
       <option value="MD01">Medium | متوسط</option>
     </select>
-    <label for="ss-rem-lang">لغة التدريب | Practice language</label>
-    <select id="ss-rem-lang">
-      <option value="ar">العربية</option>
-      <option value="en">English</option>
-      <option value="bilingual">Bilingual | ثنائي اللغة</option>
-    </select>
+    
     <label for="ss-rem-name">اسم تجريبي | Demo student name</label>
     <input id="ss-rem-name" value="طالب تجريبي" maxlength="80" autocomplete="off">
     <p id="ss-rem-note">تنبيه: هذه معاينة لتجربة الأسئلة والنتيجة. حفظ النتيجة في سجل المعلم يحتاج إعداد Firebase تجريبي مستقل؛ لا تُدخل بيانات طلاب حقيقية هنا.</p>
@@ -5280,7 +5275,7 @@ seedDemoDataIfNeeded();
    url.searchParams.set('set',set);
    url.searchParams.set('preview','1');
    url.searchParams.set('sid','9999999999999999');
-   url.searchParams.set('lang',$('ss-rem-lang').value);
+   url.searchParams.set('lang','bilingual');
    url.searchParams.set('sname',($('ss-rem-name').value||'طالب تجريبي').trim().slice(0,80));
    location.href=url.href;
  });
